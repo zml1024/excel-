@@ -1,0 +1,105 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.box {
+    width: 800px;
+    padding-top: 10px;
+    margin: 0 auto;
+    background: #eee;
+}
+
+h1 {
+    text-align: center;
+    margin: 10px auto;
+}
+
+.filePicker {
+    width: 160px;
+    height: 44px;
+    line-height: 44px;
+    text-align: center;
+    color: #fff;
+    background: #00b7ee;
+}
+
+.filePicker input[type="file"] {
+    position: relative;
+    top: -44px;
+    left: 0px;
+    width: 160px;
+    height: 44px;
+    opacity: 0;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.container {
+    width: 160px;
+    margin: 30px 20px 0 20px;
+    float: left;
+}
+
+ul li {
+    list-style: none;
+}
+
+ul {
+    width: 100%;
+    margin: 0 auto;
+    background: #eee;
+    overflow: hidden;
+    height: 500px;
+}
+
+li {
+    width: 100%;
+    height: 130px;
+    float: left;
+    background: rgb(221, 221, 221);
+    margin-top: 40px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+ul li:nth-of-type(even) {
+    margin-left: -1px;
+}
+
+li .text {
+    border: 1px solid red;
+    width: 50%;
+    height: 30px;
+    line-height: 30px;
+    float: left;
+    text-indent: 1em;
+}
+
+.title {
+    float: left;
+    width: 40%;
+    height: 32px;
+    line-height: 32px;
+    text-indent: 2em;
+    color:red;
+}
+
+button {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    background: #29b7ee;
+    color: #fff;
+    font-size: 16px;
+}
+.down{
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}

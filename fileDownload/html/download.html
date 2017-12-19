@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <div class="box">
+        <h1>考勤表处理系统（内部人员使用）</h1>
+
+        <ul>
+
+            <li>
+                <p id="weekText" class="text"></p>
+                <p class="title">销售周表</p>
+                <div class="container">
+                    <div class="filePicker">
+                        <form action='' enctype="multipart/form-data" method="post" name="weekForm">
+                            <label>选择处理文件</label>
+                            <input id="weekInput" type="file" name="file" multiple="multiple" accept="excel/*">
+                        </form>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="filePicker">
+                        <button onclick="weekBtn();">开始上传</button>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="filePicker">
+                        <a class="down" id="week" href="nfc.xlsx" download="nfc.xlsx">下载处理文件</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <p id="monthText" class="text"></p>
+                <p class="title">年假月表</p>
+                <div class="container">
+                    <div class="filePicker">
+                        <form action='' enctype="multipart/form-data" method="post" name="monthForm">
+                            <label>选择处理文件</label>
+                            <input id="monthInput" type="file" name="file" multiple="multiple" accept="excel/*">
+                        </form>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="filePicker">
+                        <button onclick="monthBtn();">开始上传</button>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="filePicker">
+                    <div class="filePicker">
+                        <a id="month" class="down" href="nfc.xlsx" download="nfc.xlsx">下载处理文件</a>
+                    </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+
+    </div>
+
+
+</body>
+<script src="../js/jquery.min.js"></script>
+<script src="../js/jquery.form.js"></script>
+<script>
+    var weekInput = document.getElementById("weekInput");
+    var weekText = document.getElementById("weekText");
+    var weekdown = document.getElementsById('week');
+    weekInput.addEventListener('change', function(event) {
+        var weekValue = weekInput.files[0];
+ 
+        weekText.innerHTML = weekValue.name;
+    }, false);
+
+    var monthInput = document.getElementById("monthInput");
+    var monthText = document.getElementById("monthText");
+    weekInput.addEventListener('change', function(event) {
+        var monthValue = monthInput.files[0];
+        monthText.innerHTML = monthValue.name;
+    }, false);
+
+    function weekBtn() {
+        var weekForm = $("form[name=weekForm]");
+        var options = {
+            url: 'http://10.4.27.175:9905/check-work/excel/uploadHolidayExcel', //上传文件的路径  
+            type: 'post',
+            success: function(data) {
+                console.log(data);
+                //....       //异步上传成功之后的操作
+            }
+        };
+        weekForm.ajaxSubmit(options);
+    }
+
+
+    function monthBtn() {
+        var monthForm = $("form[name=monthForm]");
+        var options = {
+            url: 'http://10.4.27.175:9905/check-work/excel/uploadHolidayExcel', //上传文件的路径  
+            type: 'post',
+            success: function(data) {
+                console.log(data);
+                //....       //异步上传成功之后的操作
+            }
+        };
+        monthForm.ajaxSubmit(options);
+    }
+</script>
+
+</html>
